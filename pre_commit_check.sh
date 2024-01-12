@@ -41,23 +41,39 @@ install_precommit() {
 }
 
 
+# # Define and install pre-commit
+# check_precommit() {
+#   # Use command -v to find the full path of pre-commit
+#   precommit_path=$(command -v pre-commit)
+  
+#   if [ -n "$precommit_path" ]; then
+#     echo "The pre-commit command is found at: $precommit_path"
+#   else
+#     echo "The pre-commit command is not found. Installing pre-commit..."
+#     install_precommit
+#     precommit_path=$(command -v pre-commit)
+#     echo "pre-commit has been installed successfully at: $precommit_path"
+#     echo "Executing commands pre-commit..."
+#     #$precommit_path autoupdate
+#     #$precommit_path install -f --hook-type pre-commit
+#     $precommit_path install
+#     $precommit_path
+#     git config pre-commit.gitleaks true
+#     create_precommit_config
+#     echo "Great news! Now your commits are protected from leaks"
+#   fi
+# }
+
 # Define and install pre-commit
 check_precommit() {
-  # Use command -v to find the full path of pre-commit
-  precommit_path=$(command -v pre-commit)
-  
-  if [ -n "$precommit_path" ]; then
-    echo "The pre-commit command is found at: $precommit_path"
+  if command -v pre-commit &>/dev/null; then
+    echo "The pre-commit command is already installed."
   else
-    echo "The pre-commit command is not found. Installing pre-commit..."
-    install_precommit
-    precommit_path=$(command -v pre-commit)
-    echo "pre-commit has been installed successfully at: $precommit_path"
+    echo "The pre-commit command is missing in your system"
+    install_precommit 
     echo "Executing commands pre-commit..."
-    #$precommit_path autoupdate
-    #$precommit_path install -f --hook-type pre-commit
-    $precommit_path install
-    $precommit_path
+    pre-commit autoupdate
+    pre-commit install
     git config pre-commit.gitleaks true
     create_precommit_config
     echo "Great news! Now your commits are protected from leaks"
