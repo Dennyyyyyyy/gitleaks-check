@@ -56,7 +56,7 @@ check_precommit() {
     echo "Executing commands pre-commit..."
     #$precommit_path autoupdate
     #$precommit_path install -f --hook-type pre-commit
-    $precommit_path install --no-externally-managed-environment
+    $precommit_path install
     $precommit_path
     git config pre-commit.gitleaks true
     create_precommit_config
