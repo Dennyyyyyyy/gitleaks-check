@@ -22,16 +22,24 @@ check_python() {
 install_precommit() {
   echo "Installation pre-commit..."
   if command -v pip3 &>/dev/null; then
-    pip3 install pre-commit
-  elif command -v pip &>/dev/null; then
+    # Activate a private virtual environment
+    python3 -m venv pre_commit_venv
+    source pre_commit_venv/bin/activate
     pip install pre-commit
+    deactivate
+    echo "pre-commit has been installed successfully in a virtual environment."
+  elif command -v pip &>/dev/null; then
+    # Deactivate a private virtual environment
+    python -m venv pre_commit_venv
+    source pre_commit_venv/bin/activate
+    pip install pre-commit
+    deactivate
+    echo "pre-commit has been installed successfully in a virtual environment."
   else
     error_exit "Didn't find pip in your OS. Please install pip first before installation pre-commit"
   fi
-  
-  # Add the installed pre-commit to the PATH
-  export PATH="$HOME/.local/bin:$PATH"
 }
+
 
 # Define and install pre-commit
 check_precommit() {
