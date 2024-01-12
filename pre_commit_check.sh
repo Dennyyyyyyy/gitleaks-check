@@ -54,8 +54,9 @@ check_precommit() {
     precommit_path=$(command -v pre-commit)
     echo "pre-commit has been installed successfully at: $precommit_path"
     echo "Executing commands pre-commit..."
-    $precommit_path autoupdate
-    $precommit_path install -f --hook-type pre-commit
+    #$precommit_path autoupdate
+    #$precommit_path install -f --hook-type pre-commit
+    $precommit_path install --hook-type pre-commit --no-externally-managed-environment
     $precommit_path
     git config pre-commit.gitleaks true
     create_precommit_config
