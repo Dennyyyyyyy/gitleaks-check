@@ -24,14 +24,14 @@ install_precommit() {
   if command -v pip3 &>/dev/null; then
     # Activate a private virtual environment
     python3 -m venv pre_commit_venv
-    source pre_commit_venv/bin/activate
+    . pre_commit_venv/bin/activate
     pip install pre-commit
     deactivate
     echo "pre-commit has been installed successfully in a virtual environment."
   elif command -v pip &>/dev/null; then
     # Deactivate a private virtual environment
     python -m venv pre_commit_venv
-    source pre_commit_venv/bin/activate
+    . pre_commit_venv/bin/activate
     pip install pre-commit
     deactivate
     echo "pre-commit has been installed successfully in a virtual environment."
