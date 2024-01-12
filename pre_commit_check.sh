@@ -52,11 +52,13 @@ check_python() {
 # Визначення наявності pre-commit
 check_precommit() {
   if command -v pre-commit &>/dev/null; then
-    echo "pre-commit встановлено"
-  else
+     echo "Команда pre-commit встановлена."
+else
+    echo "Помилка: команда pre-commit не встановлена."
     install_precommit
     echo "pre-commit успішно встановлено"
-  fi
+    # Додайте код чи повідомлення про дії у разі відсутності команди.
+fi
 }
 
 # Визначення наявності .pre-commit-config.yaml
