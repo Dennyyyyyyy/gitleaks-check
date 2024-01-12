@@ -75,7 +75,7 @@ for arg in "$@"; do
       check_precommit
       ;;
     create_config)
-      check_precommit_config
+      create_precommit_config
       ;;
     *)
       echo "Sorry, don't know that argument: $1"
