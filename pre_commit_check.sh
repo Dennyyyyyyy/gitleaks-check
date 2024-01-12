@@ -28,6 +28,9 @@ install_precommit() {
   else
     error_exit "Didn't find pip in your OS. Please install pip first before installation pre-commit"
   fi
+  
+  # Add the installed pre-commit to the PATH
+  export PATH="$HOME/.local/bin:$PATH"
 }
 
 # Define and install pre-commit
