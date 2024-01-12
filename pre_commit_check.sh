@@ -83,14 +83,17 @@ for arg in "$@"; do
   echo "Your operation system is: $os_name"
   echo "Argument handling: $arg"
     case "$arg" in
-    check_python)
+    checkpy)
       check_python
       ;;
-    install_precommit)
+    install)
       check_precommit
       ;;
-    create_config)
+    createcon)
       create_precommit_config
+      ;;
+    uninstall)
+      uninstall_precommit
       ;;
     *)
       echo "Sorry, don't know that argument: $1"
