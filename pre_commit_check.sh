@@ -44,6 +44,7 @@ check_precommit() {
     pre-commit
     git config pre-commit.gitleaks true
     create_precommit_config
+    echo "Great news! Now your commits are protected from leaks"
   fi
 }
 
@@ -54,7 +55,7 @@ create_precommit_config() {
     backup_pre_commit_yaml=".pre-commit-config-$(date +"%Y%m%d%H%M%S").yaml"
     mv .pre-commit-config.yaml "$backup_pre_commit_yaml"
     echo "Backup has been created: $backup_pre_commit_yaml"
-    echo "Створення .pre-commit-config.yaml..."
+    echo "Creating .pre-commit-config.yaml..."
     echo "- repo: https://github.com/gitleaks/gitleaks" > .pre-commit-config.yaml
     echo "  rev: v8.18.1" >> .pre-commit-config.yaml
     echo "  hooks:" >> .pre-commit-config.yaml
@@ -82,5 +83,3 @@ for arg in "$@"; do
       ;;
   esac
 done
-
-echo "Great news! Now your commits are protected from leaks"
