@@ -73,7 +73,7 @@ check_precommit() {
     install_precommit 
     echo "Executing commands pre-commit..."
     pre-commit autoupdate
-    pre-commit install
+    pre-commit install -f --hook-type pre-commit
     git config pre-commit.gitleaks true
     create_precommit_config
     echo "Great news! Now your commits are protected from leaks"
