@@ -14,3 +14,16 @@ curl -o https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_co
 ```
 
 2. 
+
+root@deb12-dev:/home/denis/kbot# curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s create_config
+Your operation system is: Linux
+Argument handling: create_config
+.pre-commit-config.yaml is already exist. Make a backup of previous file
+Backup has been created: .pre-commit-config-20240112210302.yaml
+Creating .pre-commit-config.yaml...
+.pre-commit-config.yaml is created
+root@deb12-dev:/home/denis/kbot# curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s check_python
+Your operation system is: Linux
+Argument handling: check_python
+Python is installed
+/usr/bin/python3
