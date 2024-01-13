@@ -45,6 +45,7 @@ uninstall_precommit() {
     . pre_commit_venv/bin/activate
     pre-commit uninstall
     deactivate
+    echo "The pre-commit command is already uninstalled."
 }
 
 # Define and install pre-commit
