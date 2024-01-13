@@ -97,7 +97,7 @@ for arg in "$@"; do
     install)
       check_precommit
       ;;
-    createcon)
+    createconf)
       create_precommit_config
       ;;
     uninstall)
