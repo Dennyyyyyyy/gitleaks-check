@@ -78,11 +78,12 @@ create_precommit_config() {
     echo "Backup has been created: $backup_pre_commit_yaml"
     echo "Creating .pre-commit-config.yaml..."
     pre-commit sample-config > .pre-commit-config.yaml
-    echo "- repo: https://github.com/gitleaks/gitleaks" > .pre-commit-config.yaml
-    echo "  rev: v8.18.1" >> .pre-commit-config.yaml
-    echo "  hooks:" >> .pre-commit-config.yaml
-    echo "    - id: gitleaks" >> .pre-commit-config.yaml
-    echo ".pre-commit-config.yaml is created"
+    cat <<EOF >> .pre-commit-config.yaml
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.1
+    hooks:
+    -   id: gitleaks
+EOF
   fi
 }
 
