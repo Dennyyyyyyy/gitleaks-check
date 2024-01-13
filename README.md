@@ -10,7 +10,7 @@ By employing pre-commit hooks, it verifies that your commits adhere to specific 
 
 - Next command download the script using curl and run installation
 ```sh
-$ curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s install
+curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s install
 ```
 ```log
 Your operation system is: Linux
@@ -28,7 +28,7 @@ Great news! Now your commits are protected from leaks
 - You also can use different arguments:
 - `checkpy` to check Python installation
 ```sh
-$ curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s checkpy
+curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s checkpy
 ```
 ```log
 Your operation system is: Linux
@@ -38,7 +38,7 @@ Python is installed
 ```
 - `uninstall` to uninstall pre-commit
 ```sh
-$ curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s uninstall
+curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s uninstall
 ```
 ```log
 Your operation system is: Linux
@@ -48,25 +48,25 @@ The pre-commit command is already uninstalled.
 ```
 - `createconf` just to create .pre-commit-config.yaml file
 ```sh
-$ curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s createconf
+curl -fsSL https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh | sh -s createconf
 ```
 ```log
 Your operation system is: Linux
-Argument handling: createcon
+Argument handling: createconf
 .pre-commit-config.yaml is already exist. Make a backup of previous file
 Backup has been created: .pre-commit-config-20240113190948.yaml
 Creating .pre-commit-config.yaml..
 ```
 - In case if you download script manually with this command:
 ```sh 
-$ curl -O https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh 
+curl -O https://raw.githubusercontent.com/Dennyyyyyyy/gitleaks-check/main/pre_commit_check.sh 
 ```
 - Don't forget make it executable before running
 ```sh
-$ chmod +x pre_commit_check.sh
+chmod +x pre_commit_check.sh
 ```
 ```sh
-$ ./pre_commit_check.sh install
+./pre_commit_check.sh install
 ```
 ```log
 Your operation system is: Linux
@@ -82,10 +82,10 @@ Great news! Now your commits are protected from leaks
 ```
 - Let's try check our commit after installation
 ```sh
-$ git add .
+git add .
 ```
 ```sh
-$ git commit -m "check with token"
+git commit -m "check with token"
 ```
 ```log
 Detect hardcoded secrets.................................................Failed
