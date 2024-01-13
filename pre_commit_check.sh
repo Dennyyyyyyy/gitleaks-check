@@ -52,6 +52,11 @@ uninstall_precommit() {
 check_precommit() {
   if command -v pre-commit &>/dev/null; then
     echo "The pre-commit command is already installed."
+    pre-commit autoupdate
+    pre-commit install -f --hook-type pre-commit
+    git config pre-commit.gitleaks true
+    create_precommit_config
+    echo "Great news! Now your commits are protected from leaks"
   else
     echo "The pre-commit command is missing in your system"
     install_precommit 
